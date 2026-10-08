@@ -1,0 +1,39 @@
+# Defaults shared by every dataset. Dataset files override only what differs.
+seed: 42
+out_dir: outputs
+archs: [cnn, lstm, clstm]
+
+train:
+  batch_size: 1024
+  epochs: 4
+  lr: 0.001
+  l2_lambda: 0.00001
+  l1_lambda: 0.000001
+  temperature: 4.0
+  alpha: 0.4
+  beta: 0.4
+  teacher_epsilon_range: [0.01, 0.1]
+  student_epsilons: [0.05, 0.1, 0.15, 0.2, 0.3]
+
+attack:
+  mape_threshold: 20.0
+  ifgsm_abs_stepsize: 0.01
+  ifgsm_steps: 20
+  pgd_rel_stepsize: 0.02
+  pgd_steps: 40
+  pgd_random_start: true
+
+eval:
+  epsilons: [0.05, 0.07, 0.1]
+  threat_models: [masked, masked_mape]
+  collapse_min_macro_f1: 0.6
+  collapse_min_attack_recall: 0.05
+
+data:
+  csv_encoding: latin1
+  cap_quantile: 0.95
+  sample_size: 100000
+  sample_mode: stratified
+  oversample_train: true
+  holdout_fraction: 0.2
+  val_share_of_holdout: 0.5

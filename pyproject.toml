@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtkd-adr"
+version = "1.0.0"
+description = "Multi teacher knowledge distillation for adversarially robust network intrusion detection"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scikit-learn>=1.2",
+    "imbalanced-learn>=0.10",
+    "torch>=2.0",
+    "foolbox>=3.3.4",
+    "pyyaml>=6.0",
+    "tqdm>=4.64",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["slow: end to end tests that train tiny models"]
+filterwarnings = ["ignore:Please import `gaussian_filter`:DeprecationWarning"]

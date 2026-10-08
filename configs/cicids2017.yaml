@@ -1,0 +1,149 @@
+# CIC-IDS2017 (CICFlowMeter CSVs). Both the original and the renamed (2018 style)
+# column spellings are listed; names that are absent from your CSVs are ignored.
+data:
+  name: cicids2017
+  label_columns: [Label, label, Attack Type]
+  benign_labels: [benign, normal traffic]
+  drop_columns:
+    - "Unnamed: 0"
+    - Timestamp
+    - Flow ID
+    - Source IP
+    - Destination IP
+    - Src IP
+    - Src Port
+    - Dst IP
+    - Dst Port
+    - Source Port
+    - Destination Port
+    - Flow Byts/s
+    - Flow Pkts/s
+    - Fwd Pkts/s
+    - Bwd Pkts/s
+    - Flow Bytes/s
+    - Flow Packets/s
+    - Fwd Packets/s
+    - Bwd Packets/s
+    - Pkt Size Avg
+    - Fwd Seg Size Avg
+    - Bwd Seg Size Avg
+    - Average Packet Size
+    - Avg Fwd Segment Size
+    - Avg Bwd Segment Size
+  categorical_columns:
+    - Protocol
+    - Fwd PSH Flags
+    - Fwd URG Flags
+    - FIN Flag Cnt
+    - SYN Flag Cnt
+    - RST Flag Cnt
+    - ACK Flag Cnt
+    - URG Flag Cnt
+    - PSH Flag Cnt
+    - ECE Flag Cnt
+    - CWE Flag Count
+    - FIN Flag Count
+    - SYN Flag Count
+    - RST Flag Count
+    - ACK Flag Count
+    - URG Flag Count
+    - PSH Flag Count
+    - ECE Flag Count
+  nonnegative_columns:
+    - Flow Duration
+    - Flow IAT Mean
+    - Flow IAT Std
+    - Flow IAT Max
+    - Flow IAT Min
+    - Fwd IAT Tot
+    - Fwd IAT Total
+    - Fwd IAT Mean
+    - Fwd IAT Std
+    - Fwd IAT Max
+    - Fwd IAT Min
+    - Bwd IAT Tot
+    - Bwd IAT Total
+    - Bwd IAT Mean
+    - Bwd IAT Std
+    - Bwd IAT Max
+    - Bwd IAT Min
+  cap_columns:
+    - Flow Duration
+    - Tot Fwd Pkts
+    - Tot Bwd Pkts
+    - Total Fwd Packets
+    - Total Backward Packets
+    - TotLen Fwd Pkts
+    - TotLen Bwd Pkts
+    - Total Length of Fwd Packets
+    - Total Length of Bwd Packets
+    - Fwd Pkt Len Max
+    - Fwd Pkt Len Mean
+    - Fwd Pkt Len Std
+    - Bwd Pkt Len Max
+    - Bwd Pkt Len Mean
+    - Bwd Pkt Len Std
+    - Flow IAT Mean
+    - Flow IAT Std
+    - Flow IAT Max
+    - Flow IAT Min
+    - Fwd IAT Tot
+    - Fwd IAT Total
+    - Fwd IAT Mean
+    - Fwd IAT Std
+    - Fwd IAT Max
+    - Fwd IAT Min
+    - Bwd IAT Tot
+    - Bwd IAT Total
+    - Bwd IAT Mean
+    - Bwd IAT Std
+    - Bwd IAT Max
+    - Bwd IAT Min
+    - Fwd Header Len
+    - Bwd Header Len
+    - Pkt Len Max
+    - Pkt Len Mean
+    - Pkt Len Std
+    - Pkt Len Var
+    - Down/Up Ratio
+    - Subflow Fwd Pkts
+    - Subflow Fwd Byts
+    - Subflow Bwd Pkts
+    - Subflow Bwd Byts
+    - Fwd Act Data Pkts
+    - Active Mean
+    - Active Std
+    - Active Max
+    - Active Min
+    - Idle Mean
+    - Idle Std
+    - Idle Max
+    - Idle Min
+  # Flow timing features: the ones an attacker can realistically shift by delaying or
+  # spacing packets without changing the payload.
+  perturbable_features:
+    - Flow Duration
+    - Flow IAT Mean
+    - Flow IAT Max
+    - Flow IAT Min
+    - Flow IAT Std
+    - Fwd IAT Tot
+    - Fwd IAT Total
+    - Fwd IAT Mean
+    - Fwd IAT Std
+    - Fwd IAT Max
+    - Fwd IAT Min
+    - Bwd IAT Tot
+    - Bwd IAT Total
+    - Bwd IAT Mean
+    - Bwd IAT Std
+    - Bwd IAT Max
+    - Bwd IAT Min
+    - Active Mean
+    - Active Std
+    - Active Max
+    - Active Min
+    - Idle Mean
+    - Idle Std
+    - Idle Max
+    - Idle Min

@@ -1,0 +1,50 @@
+# CICIoT2023. Column names follow the official CSVs (flow_duration, Header_Length, ...).
+# The benign class is labelled "BenignTraffic".
+data:
+  name: ciciot2023
+  label_columns: [label, Label]
+  benign_labels: [benigntraffic]
+  drop_columns:
+    - "Unnamed: 0"
+    - Timestamp
+    - Flow ID
+    - Source IP
+    - Destination IP
+    - Src IP
+    - Src Port
+    - Dst IP
+    - Dst Port
+  # The 0/1 flag columns are already binary, so no one hot encoding is needed.
+  categorical_columns: []
+  nonnegative_columns: [flow_duration, Duration, Rate, Srate, Drate]
+  cap_columns:
+    - flow_duration
+    - Header_Length
+    - Duration
+    - Rate
+    - Srate
+    - Drate
+    - Tot sum
+    - Min
+    - Max
+    - AVG
+    - Std
+    - Tot size
+    - IAT
+    - Number
+    - Magnitue
+    - Radius
+    - Covariance
+    - Variance
+    - Weight
+  # Timing and rate features. "Duration" in CICIoT2023 is the IP time to live, so it is
+  # deliberately excluded. Edit this list if your threat model differs.
+  perturbable_features:
+    - flow_duration
+    - Rate
+    - Srate
+    - Drate
+    - IAT
+  # CICIoT2023 has 169 CSV files with tens of millions of rows. Keeping at most this many
+  # rows per file keeps memory bounded. Set to null to load everything.
+  rows_per_file: 5000
